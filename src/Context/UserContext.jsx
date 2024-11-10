@@ -4,7 +4,7 @@ export const user  = createContext()
 
 const UserContextProvider = ({children}) =>{
 
-    const initialState = {
+  const initialState = {
   name: "",
   score: 0,
   correctAns: 0,
@@ -23,6 +23,12 @@ const reducer = (state, { type, payload }) => {
     }
     case "ALL_QUESTIONS" :{
         return {...state, allQuestion: payload}
+    }
+    case "CORRECT" :{
+      return {...state, correctAns: state.correctAns+1}
+    }
+    case "WRONG" :{
+      return {...state, wrongAns: state.wrongAns+1}
     }
     default:
       return state;

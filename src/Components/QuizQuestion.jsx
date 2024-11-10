@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { user } from "../Context/UserContext";
 import "../index.scss";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const QuizQuestion = () => {
   const { state, dispatch } = useContext(user);
@@ -11,8 +12,8 @@ const QuizQuestion = () => {
 
   const handleCheckAns = (selectedAns) => {
     console.log(selectedAns)
-   const correctAns =  selectedAns === state.allQuestion[que].correct_answer;
-  
+    const correctAns =  selectedAns === state.allQuestion[que].correct_answer;
+    correctAns ? dispatch({type:"CORRECT"}): dispatch({type:"WRONG"})
    setSolved({answer:selectedAns, correctAns,  disableSelection: true,})
 };
 
@@ -36,8 +37,9 @@ useEffect(()=>{
       // console.log(shuffleArray(ansArray));
 },[que, state.allQuestion])
 
+const navigate = useNavigate("")
 
-console.log(solved)
+console.log(state)
   return (
     <div className="quiz-container">
       <div>{state.allQuestion[que].question}</div>
@@ -53,7 +55,7 @@ console.log(solved)
                 solved.correctAns ? "green" : "red"
                 : "transparent",
 
-                color: solved.answer === el ? "white" : "black",
+                color: solved.answer === el ? "white" : "#b3b0b0",
                 cursor: solved.disableSelection ? "not-allowed" : "pointer",
               }}
               onClick={() =>{  if (!solved.disableSelection) handleCheckAns(el); }}
@@ -65,15 +67,22 @@ console.log(solved)
         </ul>
       </div>
 
+    {
+      que < state.allQuestion.length-1?
       <button
-        disabled={que === state.allQuestion.length - 1}
-        onClick={() => setQue(que + 1)}
-      >
-        Next
-      </button>
-      <button disabled={que === 0} onClick={() => setQue(que - 1)}>
+      disabled={que === state.allQuestion.length - 1}
+      onClick={() => setQue(que + 1)}
+    >
+      Next
+    </button>
+    :
+   <button onClick={()=>navigate("/result")} >Result</button>
+    }
+  
+      
+      {/* <button disabled={que === 0} onClick={() => setQue(que - 1)}>
         pre
-      </button>
+      </button> */}
     </div>
   );
 };
