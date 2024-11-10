@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { user } from "../Context/UserContext";
 import "../index.scss";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const QuizQuestion = () => {
   const { state, dispatch } = useContext(user);
@@ -25,6 +25,7 @@ function shuffleArray(arr) {
   return arr;
 }
 
+
 useEffect(()=>{
     const ansArray = [
         ...state.allQuestion[que].incorrect_answers,
@@ -42,7 +43,8 @@ const navigate = useNavigate("")
 console.log(state)
   return (
     <div className="quiz-container">
-      <div>{state.allQuestion[que].question}</div>
+      
+      <div>{que+1}. {state.allQuestion[que].question}</div>
 
       <div>
         <ul>

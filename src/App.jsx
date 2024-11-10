@@ -6,7 +6,7 @@ import AllRoutes from './AllRoutes'
 function App() {
  
   return (
-    <div className='main-container' >
+    <div  >
       <AllRoutes/>
      {/* <Home/> */}
     </div>

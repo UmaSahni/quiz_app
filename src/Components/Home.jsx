@@ -116,6 +116,7 @@ setLoading(true)
    .then((res)=>{
     if(res.response_code === 0){
       dispatch({type:"ALL_QUESTIONS", payload: res.results })
+      dispatch({type:"RESET"})
       console.log(res.results)
       setLoading(false)
        navigate("/quiz")
@@ -126,7 +127,8 @@ setLoading(true)
   }
 
   return (
-    <div className="container">
+    <div className='main-container' >
+  <div className="container">
       <header>Welcome to quiz app</header>
       <h3>Check your knowledge in a specific category</h3>
 
@@ -152,6 +154,8 @@ setLoading(true)
         <button disabled={loading} type="submit">{ loading? "loading" : "Start Quiz"}</button>
       </form>
     </div>
+    </div>
+  
   );
 };
 

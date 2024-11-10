@@ -25,10 +25,13 @@ const reducer = (state, { type, payload }) => {
         return {...state, allQuestion: payload}
     }
     case "CORRECT" :{
-      return {...state, correctAns: state.correctAns+1}
+      return {...state, correctAns: state.correctAns+1, score: state.score+10}
     }
     case "WRONG" :{
       return {...state, wrongAns: state.wrongAns+1}
+    }
+    case "RESET":{
+      return {...state, score:0,correctAns: 0,wrongAns: 0, }
     }
     default:
       return state;
