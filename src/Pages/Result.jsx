@@ -16,7 +16,7 @@ const Result = () => {
 
         <div className="flex-container">
           <div>
-            <h3>Here Your score Card</h3>
+            <h3>Here is your Score Card</h3>
             <table>
               <thead>
                 <th>Total Questions</th>

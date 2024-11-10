@@ -53,6 +53,14 @@
     text-align: center;
   }
 
+  @media (max-width:"800px"){
+    width: 80%;
+  }
+
+  @media (max-width:"500px"){
+    width: 90%;
+  }
+
   h3 {
     padding: 0px 0.7rem;
     font-size: 1rem;
@@ -131,7 +139,10 @@ button{
   width: 70%;
   margin: 2rem auto;
   padding: 3rem;
-
+  @media (max-width:"800px"){
+    padding: 0.5rem;
+    width: 90%;
+  }
 .flex-container{
   display: flex;
   justify-content: space-around;
@@ -157,6 +168,10 @@ button{
         padding: 1rem;
         border-bottom: 1px solid #fff;
        
+        @media (max-width:"800px"){
+          padding: 0.5rem;
+          font-size: 0.7em;
+        }
       }
     }
 
@@ -164,6 +179,11 @@ button{
       td{
         padding: 1rem;
         font-size: 1.5em;
+
+        @media (max-width:"800px"){
+          padding: 0.5rem;
+          font-size: 1em;
+        }
       }
     }
 

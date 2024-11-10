@@ -50,7 +50,6 @@ console.log(state)
         <ul>
           {shuffledAnswers?.map((el, i) => (
             <li
-           
               style={{
                 backgroundColor : 
                 solved.answer === el ?
