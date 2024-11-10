@@ -16,6 +16,19 @@
 }
 
 
+%button{
+  font-size: 1.5rem;
+  border-radius: variables.$border_radius;
+  width: 40%;
+  padding: 5px;
+  display: flex;
+  justify-content:center ;
+  background-color: rgb(39, 189, 2);
+  margin: 10px auto;
+  border: none;
+  cursor: pointer;
+}
+
 .container {
   width: 50%;
   border-radius: variables.$border_radius;
@@ -60,16 +73,13 @@
       
     }
     button {
-      font-size: 1.5rem;
-      border-radius: variables.$border_radius;
-      width: 40%;
-      padding: 5px;
-      display: flex;
-      justify-content:center ;
-      background-color: rgb(39, 189, 2);
-      margin: 10px auto;
-      border: none;
-      cursor: pointer;
+     @extend %button
     }
   }
+};
+
+.quiz-container {
+button{
+  @extend %button
 }
+};
