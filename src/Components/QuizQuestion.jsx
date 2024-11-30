@@ -44,7 +44,7 @@ console.log(state)
   return (
     <div className="quiz-container">
       
-      <div>{que+1}. {state.allQuestion[que].question}</div>
+      <div dangerouslySetInnerHTML={{__html:`${que+1}. ${state.allQuestion[que].question}`}} ></div>
 
       <div>
         <ul>
